@@ -8,7 +8,7 @@ export type ExtendedUser = DefaultSession["user"] & {
 }
 
 
-declare module "@auth/core" {
+declare module "next-auth" {
     interface Session {
         user: ExtendedUser
     }
