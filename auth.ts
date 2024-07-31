@@ -5,8 +5,34 @@ import { PrismaAdapter } from "@auth/prisma-adapter"
 import { db } from "./lib/db"
 import { getUserById } from "./data/user"
 
-export const { handlers: { GET ,POST }, signIn, signOut, auth } = NextAuth({
+export const { handlers, signIn, signOut, auth } = NextAuth({
+  pages:{
+    signIn: "/auth/login",
+    error: "/auth/error"
+  },
+  events: {
+    async linkAccount({ user }) {
+      await db.user.update({
+        where:{ id: user.id },
+        data:{ emailVerified: new Date() }
+      })
+    }
+  },
   callbacks: {
+    async signIn({user, account}) {
+      // Allow OAuth without email verification,
+      if (account?.provider !== "credentials") return true
+      
+      if (user.id) {
+        const existingUser = await getUserById(user.id)
+        
+        // Prevent Sign in without email verification.
+        if (!existingUser?.emailVerified) return false
+      }
+      
+      // TODO: Add 2FA check
+      return true
+    },
     async session({session,token}) {
       if (token.sub && session.user) {
         session.user.id = token.sub
@@ -15,8 +41,8 @@ export const { handlers: { GET ,POST }, signIn, signOut, auth } = NextAuth({
         session.user.role = token.role as UserRole
       }
       
-      console.log({sessionToken: token})
-      console.log(session)
+      // console.log({sessionToken: token})
+      // console.log(session)
       return session
     },
     async jwt({token,trigger}) {
@@ -24,11 +50,11 @@ export const { handlers: { GET ,POST }, signIn, signOut, auth } = NextAuth({
       const existingUser = await getUserById(token.sub)
       if (!existingUser) return token
       token.role = existingUser.role
-      console.log({token})
+      // console.log({token})
       return token
     }
   },
-  adapter : PrismaAdapter(db) ,
+  adapter : PrismaAdapter(db),
   session : { strategy: "jwt" },
   ...authConfig
 })
