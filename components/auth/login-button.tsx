@@ -1,5 +1,7 @@
 "use client"
 import { useRouter } from 'next/navigation'
+import { Dialog, DialogContent, DialogTrigger } from '../ui/dialog'
+import { LoginForm } from './login-form'
 
 interface LoginButtonProps {
     children : React.ReactNode
@@ -16,12 +18,19 @@ export const LoginButton = ({
 }:LoginButtonProps) => {
     const router = useRouter()
     const onClick = () => {
-        console.log("LOG IN BUTTON CLICKED")
         router.push('/auth/login')
     } 
-    return (
-        <span onClick={onClick} className="cursor-pointer">
-            {children}
-        </span>
-    )
+
+    if (mode === "modal") {
+        return (
+            <Dialog>
+                <DialogTrigger asChild={asChild}>
+                    {children}
+                </DialogTrigger>
+                <DialogContent className='w-auto bg-transparent border-none'>
+                    <LoginForm />
+                </DialogContent>
+            </Dialog>
+        )    
+    }
 }

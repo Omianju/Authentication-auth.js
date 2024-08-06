@@ -26,11 +26,13 @@ import Link from "next/link";
 
 export const LoginForm = () => {
   const searchParams = useSearchParams()
+  const callbackUrl = searchParams.get("callbackUrl")
   const urlError = searchParams.get("error") === "OAuthAccountNotLinked" ? "Email already in use with different provider!" : ""
-  const [showTwoFactor, setShowTwoFactor] = useState(false)
-  const [ isPending, startTransition ] = useTransition()
+
   const [ success, setSuccess ] = useState<string | undefined>("")
   const [ error, setError ] = useState<string | undefined>("")
+  const [showTwoFactor, setShowTwoFactor] = useState(false)
+  const [ isPending, startTransition ] = useTransition()
 
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
@@ -45,7 +47,7 @@ export const LoginForm = () => {
     setSuccess("")
 
     startTransition(()=>{
-      login(values)
+      login(values, callbackUrl )
       .then((data)=>{
         if (data?.error){
           form.reset()
@@ -75,6 +77,7 @@ export const LoginForm = () => {
       backButtonHref="/auth/register"
       showSocials
     >
+      
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
