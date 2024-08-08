@@ -24,10 +24,6 @@ This project is a full-featured authentication system built with **Next.js** and
 
 ## 📚 Project Structure
 
-## 📁 Project Structure
-
-The project is organized into the following directories and files, each serving a specific purpose to maintain a clean and efficient codebase.
-
 ```plaintext
 ├── actions                   # Functions for performing various actions (e.g., fixes)
 ├── app                       # Main application components and layout
