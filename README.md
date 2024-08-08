@@ -49,6 +49,7 @@ This project is a full-featured authentication system built with **Next.js** and
 └── tsconfig.json             # TypeScript configuration file
 ```
 ⚠️ **Note**  
+
 As the project is currently in development, email functionality (such as verification and password reset emails) is not operational due to the absence of a custom domain. Emails cannot be sent via the Resend API in the current setup. However, plans are in place to purchase a domain in the near future, which will enable full email functionality.
 
 🌐 **Future Plans**  
