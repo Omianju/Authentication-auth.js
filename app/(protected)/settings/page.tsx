@@ -74,7 +74,7 @@ const SettingPage = () => {
     }
     
     return (
-        <Card className="w-[600px]">
+        <Card className="sm:w-[400px] md:w-[600px]">
             <CardHeader>
                 <p className="text-2xl font-semibold text-center">
                     ⚙️ Settings
@@ -86,7 +86,7 @@ const SettingPage = () => {
                     className="space-y-6"
                     onSubmit={form.handleSubmit(onSubmit)}
                     >
-                        <div className="space-y-4">
+                        <div className="md:space-y-4 sm:space-y-2">
                         <FormField
                                 name="name"
                                 control={form.control}
