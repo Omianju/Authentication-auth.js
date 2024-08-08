@@ -48,4 +48,11 @@ This project is a full-featured authentication system built with **Next.js** and
 ├── tailwind.config.ts        # Tailwind CSS configuration for styling
 └── tsconfig.json             # TypeScript configuration file
 
+⚠️ **Note**  
+As the project is currently in development, email functionality (such as verification and password reset emails) is not operational due to the absence of a custom domain. Emails cannot be sent via the Resend API in the current setup. However, plans are in place to purchase a domain in the near future, which will enable full email functionality.
+
+🌐 **Future Plans**  
+- **Domain Purchase:** A custom domain will be acquired to enable full email functionality, ensuring that all email-based features, such as verification and password reset, work seamlessly.
+- **Production Deployment:** Once the domain is set up, the project will be deployed to a production environment, making it fully functional and accessible to end-users.
+
 
