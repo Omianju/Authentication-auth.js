@@ -24,5 +24,32 @@ This project is a full-featured authentication system built with **Next.js** and
 
 ## 📚 Project Structure
 
-The project is organized in a modular way to ensure scalability and ease of maintenance.
+## 📁 Project Structure
+
+The project is organized into the following directories and files, each serving a specific purpose to maintain a clean and efficient codebase.
+
+```plaintext
+├── actions                   # Functions for performing various actions (e.g., fixes)
+├── app                       # Main application components and layout
+├── components                # Reusable UI components with responsive design
+├── data                      # Server, client, and admin data settings
+├── hooks                     # Custom React hooks for shared logic
+├── lib                       # Library functions and utilities
+├── prisma                    # Prisma ORM schema and database migrations
+├── public                    # Public assets and static files
+├── schemas                   # Validation schemas for forms and data handling
+├── .eslint.json              # ESLint configuration for code linting
+├── .gitignore                # Git ignore file to exclude unnecessary files
+├── README.md                 # Project documentation
+├── auth.config.ts            # Configuration for authentication and token management
+├── middleware.ts             # Middleware setup for API and authentication
+├── next-auth.d.ts            # TypeScript definitions for NextAuth.js
+├── package.json              # NPM package configuration file
+├── package-lock.json         # Locked version of dependencies for consistent installs
+├── next.config.mjs           # Next.js configuration file
+├── postcss.config.js         # PostCSS configuration for processing CSS
+├── routes.ts                 # Route definitions for the application
+├── tailwind.config.ts        # Tailwind CSS configuration for styling
+└── tsconfig.json             # TypeScript configuration file
+
 
