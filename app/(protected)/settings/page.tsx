@@ -27,7 +27,7 @@ import { SettingsSchema } from "@/schemas/login"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { UserRole } from "@prisma/client"
 import { useSession } from "next-auth/react"
-import { useEffect, useState, useTransition } from "react"
+import { useState, useTransition } from "react"
 import { useForm } from "react-hook-form"
 import * as z from "zod"
 
@@ -74,7 +74,7 @@ const SettingPage = () => {
     }
     
     return (
-        <Card className="sm:w-[400px] md:w-[600px]">
+        <Card className="w-[400px] md:w-[600px]">
             <CardHeader>
                 <p className="text-2xl font-semibold text-center">
                     ⚙️ Settings
@@ -86,7 +86,7 @@ const SettingPage = () => {
                     className="space-y-6"
                     onSubmit={form.handleSubmit(onSubmit)}
                     >
-                        <div className="md:space-y-4 sm:space-y-2">
+                        <div className="md:space-y-4 space-y-3">
                         <FormField
                                 name="name"
                                 control={form.control}

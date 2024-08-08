@@ -37,7 +37,7 @@ const AdminPage = () => {
         })
     }
     return (
-        <Card className="md:w-[600px] sm:w-[400px]">
+        <Card className="md:w-[600px] w-[400px]">
             <CardHeader>
                 <p className="text-2xl font-semibold text-center">
                     🔑 Admin
@@ -48,13 +48,13 @@ const AdminPage = () => {
                     <FormSuccess message="You are are allowed to see this."/>
                 </RoleGate>
                 <div className="flex items-center justify-between p-3 rounded-lg border shadow-md">
-                    <p className="md:text-sm sm:text-xs font-medium">Admin-only API Route</p>
+                    <p className="md:text-sm text-xs font-medium">Admin-only API Route</p>
                     <Button size={isMobile ? "sm" : "default"} onClick={apiHandler}>
                         Click to test
                     </Button>
                 </div>
                 <div className="flex items-center justify-between rounded-lg border p-3 shadow-md">
-                    <p className="md:text-sm sm:text-xs font-medium">Admin-only Server Action</p>
+                    <p className="md:text-sm text-xs font-medium">Admin-only Server Action</p>
                     <Button size={isMobile ? "sm" : "default"} onClick={actionHandler} >Click to test</Button>
                 </div>
             </CardContent>

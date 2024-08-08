@@ -18,7 +18,7 @@ export const Navbar = () => {
     },[])
     
     return (
-        <nav className="bg-secondary rounded-xl p-4 sm:w-[400px] md:w-[600px] flex items-center justify-between shadow-sm">
+        <nav className="bg-secondary rounded-xl p-4 w-[400px] md:w-[600px] flex items-center justify-between shadow-sm">
             <div className="flex gap-x-2">
             <Button
              asChild
